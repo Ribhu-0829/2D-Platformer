@@ -9,7 +9,7 @@ const gravity = 0.5
 
 // Render Background Canvas
 function renderBackground(c){
-    c.fillStyle = 'white'
+    c.fillStyle = 'grey'
     c.fillRect(0, 0, canvas.width, canvas.height)
 
 }
@@ -34,9 +34,12 @@ class Player {
     update(){
         this.draw()
         this.position.y += this.velocity.y;
-        if(this.position.y + this.height + this.velocity < canvas.height){
+        if(this.position.y + this.height + this.velocity.y < canvas.height){
             this.velocity.y += gravity
-        }else this.velocity.y = 0
+        }
+        else{
+            this.velocity.y = 0
+        } 
     }
     
 }
@@ -50,7 +53,6 @@ function animate() {
     renderBackground(c)
     player.update()
 }
-renderBackground(c)
-player.draw()
+
 animate()
 
