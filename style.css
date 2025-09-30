@@ -1,4 +1,19 @@
+* {
+        font-family: 'Press Start 2P';
+}
 body{
         background:black;
-        color: white;
+}
+h1{
+        margin: 0;
+        font-size: 16px;
+}
+button{
+        font-size: 16px;
+        border:none;
+        cursor:pointer; 
+        
+}
+button:hover{
+        background-color: rgb(180, 176, 176);
 }

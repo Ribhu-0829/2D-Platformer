@@ -1,13 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <title>Developing</title>
-     <link rel="stylesheet" href="style.css">
+    <title>Developing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas>
-    </canvas>
-    <script src = "script.js" ></script>
-</body>    
-</html>
 
+    <!-- This is the Overlapping Div for the Whole Canvas during Transitions -->
+    <div 
+        style="display: inline-block;
+         position: relative;"
+        ><div 
+         id="overlappingDiv" 
+         style="z-index: 10;
+                background-color: rgba(0,0,0);
+                position: absolute;
+                top:0;
+                right:0;
+                bottom:0;
+                left: 0;
+                pointer-events: none;
+                opacity: 0;">
+        </div>
+
+        <!-- This is the main Canvas for Game rendering -->
+        <canvas></canvas>
+
+        <!-- This Contains all the formatting for the BattleAnimationScenes -->
+        <div id = 'userInterface' style="display: none;">
+
+             <!-- this is the enemy health bar -->
+            <div
+                style="
+                    background-color: white;
+                    width: 200px;
+                    position: absolute;
+                    top: 50px;
+                    left: 50px;
+                    border: 4px black solid;
+                    padding: 12px">
+
+                <h1 style="font-size: 16px;">Draggle</h1>
+
+                <div style="position:relative;">
+                    <!-- Div for Health Bar Background -->
+                    <div style="height: 5px;
+                        background-color: rgba(0,0,0, 0.2);
+                        margin-top: 10px;">
+                    </div>
+
+                    <!-- Div for Actual Health -->
+                    <div 
+                        id="enemyHealthBar"
+                        style="height: 5px;
+                            background-color: rgb(34, 112, 34);
+                            position:absolute;
+                            top:0;
+                            left: 0;
+                            right:0">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- This  is the Player Heath Bar -->
+            <div
+                style="
+                    background-color: white;
+                    width: 200px;
+                    position: absolute;
+                    top: 330px;
+                    right: 50px; 
+                    border: 4px black solid;
+                    padding: 12px">
+                <h1 style="font-size: 16px;">Emby</h1>
+
+                <!-- Div for Health Background -->
+                <div style="position:relative;">
+                    <div style="
+                        height: 5px;
+                         background-color: rgba(0,0,0, 0.2);
+                         margin-top: 10px;
+                         ">
+                    </div>
+
+                <!-- Div for Actual Health  -->
+                    <div 
+                        id="playerHealthBar"
+                        style="
+                            height: 5px;
+                            background-color: rgb(34, 112, 34);
+                            position:absolute;
+                            top:0;
+                            left: 0;
+                            right:0"
+                    ></div>
+                </div>
+            </div>
+            <!-- this is the bottom part for attacks and attacks type -->
+            <div style="
+                    display:flex;
+                    background-color: rgb(206, 204, 204);
+                    height: 140px;
+                    position: absolute;
+                    bottom:0;
+                    left:0;
+                    right:0;
+                    border-top: 4px black solid 
+                    ">
+    
+                    <!-- Attack Dialogue Box -->
+                <div id='dialogueBox'
+                     style="
+                        cursor:pointer;
+                        position: absolute;
+                        top:0;
+                        bottom:0;
+                        left:0;
+                        right:0;
+                        background-color: white;
+                        padding: 12px;
+                        display:none;
+                        ">
+                </div>
+                <!-- Dynamic Buttons for All the Attacks -->
+                <div 
+                    id="attacksBox"
+                    style="
+                        width: 75%;
+                        display: grid;
+                        grid-template-columns: repeat(2,1fr);
+                    ">
+                </div>
+                    <!-- Attack Type Formatting -->
+                <div 
+                    id="attackType"
+                    style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width:25%;
+                        border-left:4px black solid;">
+                    <h1>Attack Type</h1>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+    <!-- These are the the Js scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./Scripts/data/audio.js"></script>
+    <script src="./Scripts/data/Collision.js"></script>
+    <script src="./Scripts/data/attack.js"></script>
+    <script src="./Scripts/data/monster.js"></script>
+    <script src="./Scripts/data/battleZone.js"></script>
+    <script src="./Scripts/classes.js"></script>
+    <script src="./Scripts/index.js"></script>
+    <script src="./Scripts/battleSequence.js"></script>
+</body>
+
+</html>
